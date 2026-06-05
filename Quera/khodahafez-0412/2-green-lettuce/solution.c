@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void javab() {
+    int n;
+    if (scanf("%d", &n) != 1) return;
+    
+    long long araye[105];
+    for (int i = 0; i < n; i++) {
+        scanf("%lld", &araye[i]);
+    }
+    
+    if (n == 1) {
+        printf("0\n");
+        return;
+    }
+    
+    long long kamtaren = araye[0];
+    long long mahdodeyat = (2 * kamtaren) - 1;
+    
+    long long tedadBoresh = 0;
+    
+    for (int i = 1; i < n; i++) {
+        if (araye[i] > mahdodeyat) {
+             long long require = (araye[i] + mahdodeyat - 1) / mahdodeyat;
+            
+            tedadBoresh += (require - 1);
+        }
+    }
+    
+    printf("%lld\n", tedadBoresh);
+}
+
+int main() {
+    int adad;
+    if (scanf("%d", &adad) == 1) {
+        while (adad--) {
+            javab();
+        }
+    }
+    return 0;
+}
